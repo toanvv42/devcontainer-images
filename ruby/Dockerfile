@@ -9,7 +9,7 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
     libpq-dev \
     libsqlite3-dev \
-    libmysqlclient-dev \
+    libmariadb-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
