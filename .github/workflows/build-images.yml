@@ -30,6 +30,7 @@ jobs:
           - ruby
           - rails
           - terraform
+          - devsecops
 
     steps:
       - name: Checkout
