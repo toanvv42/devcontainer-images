@@ -25,5 +25,8 @@ RUN poetry config virtualenvs.create false
 # Install Tailscale
 RUN curl -fsSL https://tailscale.com/install.sh | sh
 
+# Install Claude Code CLI
+RUN npm install -g @anthropic-ai/claude-code
+
 # Set default shell
 ENV SHELL=/bin/zsh
