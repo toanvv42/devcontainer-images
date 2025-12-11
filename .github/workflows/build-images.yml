@@ -20,6 +20,7 @@ jobs:
           - base
           - node
           - python
+          - fullstack
           - ruby
           - rails
           - terraform

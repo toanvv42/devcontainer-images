@@ -28,6 +28,7 @@ FROM ghcr.io/toanvv42/devcontainer-images/devsecops:latest
 | [`base`](#base) | Common tools + basic security | General development |
 | [`node`](#node) | Node.js 22 + pnpm | JavaScript/TypeScript projects |
 | [`python`](#python) | Python 3.12 + poetry | Python projects |
+| [`fullstack`](#fullstack) | Python + Node.js + Tailscale | Next.js + FastAPI, fullstack apps |
 | [`ruby`](#ruby) | Ruby 3.1 + bundler | Ruby projects |
 | [`rails`](#rails) | Ruby + Rails dependencies | Rails applications |
 | [`terraform`](#terraform) | Terraform + cloud CLIs | Infrastructure as Code |
@@ -88,6 +89,41 @@ hadolint Dockerfile
 | poetry | latest | Dependency management |
 
 **Use when:** Python applications, Django, FastAPI, data science projects.
+
+---
+
+### fullstack
+
+**Image:** `ghcr.io/toanvv42/devcontainer-images/fullstack:latest`
+
+Combines Python and Node.js for fullstack development with Tailscale for secure networking.
+
+| Tool | Version | Purpose |
+|------|---------|---------|
+| Python | 3.12 | Python runtime |
+| poetry | latest | Python dependency management |
+| Node.js | 22 | JavaScript runtime |
+| pnpm | latest | Node.js package manager |
+| corepack | enabled | Package manager management |
+| **Tailscale** | latest | Secure mesh VPN |
+
+**Basic Usage:**
+
+```bash
+# Python backend
+poetry install
+poetry run uvicorn main:app
+
+# Node.js frontend
+pnpm install
+pnpm dev
+
+# Tailscale (requires auth key)
+sudo tailscale up --authkey=<your-auth-key>
+tailscale status
+```
+
+**Use when:** Fullstack applications with separate frontend/backend (Next.js + FastAPI, React + Django), projects requiring secure remote access via Tailscale.
 
 ---
 
@@ -285,8 +321,9 @@ Do you need security scanning?
     ├── Working with Terraform/K8s? → terraform
     ├── Rails application? → rails
     ├── Ruby project? → ruby
-    ├── Python project? → python
-    ├── Node.js project? → node
+    ├── Python + Node.js (fullstack)? → fullstack
+    ├── Python only? → python
+    ├── Node.js only? → node
     └── General purpose → base
 ```
 
